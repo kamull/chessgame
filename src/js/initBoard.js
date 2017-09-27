@@ -1,6 +1,8 @@
 function initBoard() {
     console.log('did this exocute?')
-    const board = document.getElementById('chess-board');
+    const chessBoard = document.getElementById('chess-board');
+    const board = document.createElement('div');
+    board.classList.add('board');
 
     for (let x = 0; x < 8; x++) {
         const row = document.createElement('div');
@@ -20,6 +22,7 @@ function initBoard() {
             }
             board.appendChild(row);
         }
+        chessBoard.appendChild(board);
 
     }
 

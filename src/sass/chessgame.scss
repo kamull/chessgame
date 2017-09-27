@@ -19,15 +19,23 @@ body {
     position: relative;
     max-width: 400px;
     width: 100%;
-    border: 1px solid red;
     #chess-board {
+        position: relative;
+        // height: 400px;
+        .board {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
         display: flex;
-        height: 400px;
-        border: 1px solid blue;
+        flex-direction: column;
+        }
+        .image {
+            width: 100%;
+        }
         .row {
             display: flex;
-            border: 1px solid purple;
-            flex-direction: column;
             flex: 1;
 
         }
