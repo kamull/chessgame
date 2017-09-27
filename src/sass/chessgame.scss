@@ -1,3 +1,30 @@
-body {
+ html, body {
+     height: 100%;
+     width: 100%;
+ }   
+    
+ body {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: lightblue;
+    border: 1px solid green;
+    
+}
+
+.chess-header {
+    border: 1px solid orange;
+}
+
+.chess-game {
+    position: relative;
+    max-width: 400px;
+    width: 100%;
+    border: 1px solid red;
+    
+}
+
+.chess-footer {
+    border: 1px solid darkblue;
 }
