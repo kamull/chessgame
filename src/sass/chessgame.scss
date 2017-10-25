@@ -40,14 +40,69 @@ body {
 
         }
         .white-space {
+            position: relative;
             background: #fff;
             flex: 1;
 
         }
         .black-space {
+            position: relative;
             flex: 1;
-            background: #000;
+            background: #494545;
         }
+        .selected-blk {
+            background: #78b2d3;
+            // border: 1px solid red;
+        }
+        .selected-wht {
+            background: #c6eafd;
+            // border: 1px solid red;
+            }
+        .moves-blk {
+            background: #92d592;
+        }
+        .moves-wht {
+            background: #ceffce;
+        }
+        .attack-wht {
+            background: #facece;
+        }
+        .attack-blk {
+            background: #dd9999;
+        }
+        .chess-piece {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            svg {
+                flex: 1;
+            }
+            .king {
+                height: 85%;
+            }
+            .queen {
+                height: 85%;
+            }
+            .horse {
+                height:  85%;
+            }
+            .bishop {
+                height: 85%;
+            }
+            .rook {
+                height: 85%;
+            }
+            .pawn {
+                height: 85%;
+            }
+        }
+        
     }
 }
 

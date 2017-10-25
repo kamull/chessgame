@@ -1,5 +1,4 @@
 function initBoard() {
-    console.log('did this exocute?')
     const chessBoard = document.getElementById('chess-board');
     const board = document.createElement('div');
     board.classList.add('board');
