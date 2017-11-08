@@ -51,25 +51,28 @@ function horseMoves(vector, board) {
     const e = { ...vector };
     (function() {
         e.y += 2;
-        if (!board[e.x - 1] || !board[e.x + 1]) return;
+        // if (!board[e.x - 1] || !board[e.x + 1]) return;
+        if (board[e.x - 1]) {
+            if (board[e.x - 1][e.y] && !board[e.x - 1][e.y].children[0].id.includes(color)) {
+                if (board[e.x - 1][e.y].children[0].id.includes(enemy)) {
 
-        if (board[e.x - 1][e.y] && !board[e.x - 1][e.y].children[0].id.includes(color)) {
-            if (board[e.x - 1][e.y].children[0].id.includes(enemy)) {
+                    spaceStyle(board[e.x - 1][e.y], 'attack');
 
-                spaceStyle(board[e.x - 1][e.y], 'attack');
-
+                }
+                spaceStyle(board[e.x - 1][e.y], 'moves');
+                moves.push({ x: e.x - 1, y: e.y });
             }
-            spaceStyle(board[e.x - 1][e.y], 'moves');
-            moves.push({ x: e.x - 1, y: e.y });
         }
-        if (board[e.x + 1][e.y] && !board[e.x + 1][e.y].children[0].id.includes(color)) {
-            if (board[e.x + 1][e.y].children[0].id.includes(enemy)) {
+        if(board[e.x + 1]) {
+            if (board[e.x + 1][e.y] && !board[e.x + 1][e.y].children[0].id.includes(color)) {
+                if (board[e.x + 1][e.y].children[0].id.includes(enemy)) {
 
-                spaceStyle(board[e.x + 1][e.y], 'attack');
+                 spaceStyle(board[e.x + 1][e.y], 'attack');
 
+                }
+                spaceStyle(board[e.x + 1][e.y], 'moves');
+                moves.push({ x: e.x + 1, y: e.y });
             }
-            spaceStyle(board[e.x + 1][e.y], 'moves');
-            moves.push({ x: e.x + 1, y: e.y });
         }
     })();
     
@@ -90,7 +93,7 @@ function horseMoves(vector, board) {
         if (board[s.x][s.y + 1] && !board[s.x][s.y + 1].children[0].id.includes(color)) {
             if (board[s.x][s.y + 1].children[0].id.includes(enemy)) {
 
-                spaceStyle(board[s.x][s.y + 1], 'attak');
+                spaceStyle(board[s.x][s.y + 1], 'attack');
             }
             spaceStyle(board[s.x][s.y + 1], 'moves');
             moves.push({ x: s.x, y: s.y + 1 });
@@ -100,27 +103,31 @@ function horseMoves(vector, board) {
     const w = { ...vector };
     (function() {
         w.y -= 2;
-        if (!board[w.x - 1] || !board[w.x + 1]) return;
+        // if (!board[w.x - 1] || !board[w.x + 1]) return;
+        if (board[w.x - 1]) {
+            if (board[w.x - 1][w.y] && !board[w.x - 1][w.y].children[0].id.includes(color)) {
+                if (board[w.x - 1][w.y].children[0].id.includes(enemy)) {
 
-        if (board[w.x - 1][w.y] && !board[w.x - 1][w.y].children[0].id.includes(color)) {
-            if (board[w.x - 1][w.y].children[0].id.includes(enemy)) {
+                    spaceStyle(board[w.x - 1][w.y], 'attack');
 
-                spaceStyle(board[w.x - 1][w.y], 'attack');
-
+                }
+                spaceStyle(board[w.x - 1][w.y], 'moves');
+                moves.push({ x: w.x - 1, y: w.y});
             }
-            spaceStyle(board[w.x - 1][w.y], 'moves');
-            moves.push({ x: w.x - 1, y: w.y});
         }
-        if (board[w.x + 1][w.y] && !board[w.x + 1][w.y].children[0].id.includes(color)) {
-            if (board[w.x + 1][w.y].children[0].id.includes(enemy)) {
+        if (board[w.x + 1]) {
+            if (board[w.x + 1][w.y] && !board[w.x + 1][w.y].children[0].id.includes(color)) {
+                if (board[w.x + 1][w.y].children[0].id.includes(enemy)) {
 
-                spaceStyle(board[w.x + 1][w.y], 'attack');
+                    spaceStyle(board[w.x + 1][w.y], 'attack');
 
+                }
+                spaceStyle(board[w.x + 1][w.y], 'moves');
+                moves.push({ x: w.x + 1, y: w.y });
             }
-            spaceStyle(board[w.x + 1][w.y], 'moves');
-            moves.push({ x: w.x + 1, y: w.y });
         }
     })();
+    
     return moves
 }
 

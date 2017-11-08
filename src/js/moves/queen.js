@@ -3,7 +3,7 @@ function queenMoves (vector, board) {
     
     const piece = board[vector.x][vector.y].children[0];
     const color = piece.id.split('-')[0];
-    const enemy = color === 'blk' ? 'wht' : 'blk'
+    const enemy = color === 'blk' ? 'wht' : 'blk';
     const moves = [];
     
 

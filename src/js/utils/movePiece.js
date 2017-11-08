@@ -17,7 +17,7 @@ if (!board[vector.x] || !board[vector.x][vector.y]) return;
     board[x][y].appendChild(board[px][py].children[0]);
     if(captured) {
         board[px][py].appendChild(state.captured);
-        state.captured = '';
+        // state.captured = '';
     } else {
     board[px][py].appendChild(emptySpace);
     }

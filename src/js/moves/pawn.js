@@ -1,23 +1,24 @@
-function pawnMoves (vector, board) {
+function pawnMoves (vector, board, king) {
     const piece = board[vector.x][vector.y].children[0];
     const color = piece.id.split('-')[0];
-    const enemy = color === 'blk' ? 'wht' : 'blk'
+    const enemy = color === 'blk' ? 'wht' : 'blk';
     const moves = [];
     const dir = color === 'blk' ? 1 : -1;
     
     // checks if pawn has moved from first space. 
     let i = 1;
-    let moved = true
+    let moved = true;
     if (vector.x +  dir === 2 && dir === 1) {
         i=0;
-        moved = false
+        moved = false;
     }
     if(vector.x +  dir === 5 && dir === -1) {
         i=0;
-        moved = false
+        moved = false;
     }
     (function() {
         for (i; i < 2; i++) {
+            if(king === 'check') break;
         const firstMoves = {...vector};
         if (moved) {
             firstMoves.x += (i * dir);
@@ -37,7 +38,7 @@ function pawnMoves (vector, board) {
             moves.push(firstMoves);
         }
         
-        const lv = {...vector}
+        const lv = {...vector};
         if (board[lv.x + dir] && board[lv.x + dir][lv.y - 1]) {
             const leftSpace = board[lv.x + dir][lv.y - 1];
             if (leftSpace.children[0].id.includes(enemy)) {
